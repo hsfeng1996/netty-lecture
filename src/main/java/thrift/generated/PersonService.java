@@ -14,7 +14,7 @@ public class PersonService {
 
     public Person getPersonByUsername(java.lang.String username) throws DataException, org.apache.thrift.TException;
 
-    public void savePersion(Person persion) throws DataException, org.apache.thrift.TException;
+    public void savePerson(Person persion) throws DataException, org.apache.thrift.TException;
 
   }
 
@@ -22,7 +22,7 @@ public class PersonService {
 
     public void getPersonByUsername(java.lang.String username, org.apache.thrift.async.AsyncMethodCallback<Person> resultHandler) throws org.apache.thrift.TException;
 
-    public void savePersion(Person persion, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException;
+    public void savePerson(Person persion, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException;
 
   }
 
@@ -72,23 +72,23 @@ public class PersonService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getPersonByUsername failed: unknown result");
     }
 
-    public void savePersion(Person persion) throws DataException, org.apache.thrift.TException
+    public void savePerson(Person persion) throws DataException, org.apache.thrift.TException
     {
-      send_savePersion(persion);
-      recv_savePersion();
+      send_savePerson(persion);
+      recv_savePerson();
     }
 
-    public void send_savePersion(Person persion) throws org.apache.thrift.TException
+    public void send_savePerson(Person persion) throws org.apache.thrift.TException
     {
-      savePersion_args args = new savePersion_args();
+      savePerson_args args = new savePerson_args();
       args.setPersion(persion);
-      sendBase("savePersion", args);
+      sendBase("savePerson", args);
     }
 
-    public void recv_savePersion() throws DataException, org.apache.thrift.TException
+    public void recv_savePerson() throws DataException, org.apache.thrift.TException
     {
-      savePersion_result result = new savePersion_result();
-      receiveBase(result, "savePersion");
+      savePerson_result result = new savePerson_result();
+      receiveBase(result, "savePerson");
       if (result.dataException != null) {
         throw result.dataException;
       }
@@ -145,23 +145,23 @@ public class PersonService {
       }
     }
 
-    public void savePersion(Person persion, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException {
+    public void savePerson(Person persion, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException {
       checkReady();
-      savePersion_call method_call = new savePersion_call(persion, resultHandler, this, ___protocolFactory, ___transport);
+      savePerson_call method_call = new savePerson_call(persion, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
-    public static class savePersion_call extends org.apache.thrift.async.TAsyncMethodCall<Void> {
+    public static class savePerson_call extends org.apache.thrift.async.TAsyncMethodCall<Void> {
       private Person persion;
-      public savePersion_call(Person persion, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public savePerson_call(Person persion, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.persion = persion;
       }
 
       public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
-        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("savePersion", org.apache.thrift.protocol.TMessageType.CALL, 0));
-        savePersion_args args = new savePersion_args();
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("savePerson", org.apache.thrift.protocol.TMessageType.CALL, 0));
+        savePerson_args args = new savePerson_args();
         args.setPersion(persion);
         args.write(prot);
         prot.writeMessageEnd();
@@ -191,7 +191,7 @@ public class PersonService {
 
     private static <I extends Iface> java.util.Map<java.lang.String,  org.apache.thrift.ProcessFunction<I, ? extends org.apache.thrift.TBase>> getProcessMap(java.util.Map<java.lang.String, org.apache.thrift.ProcessFunction<I, ? extends  org.apache.thrift.TBase>> processMap) {
       processMap.put("getPersonByUsername", new getPersonByUsername());
-      processMap.put("savePersion", new savePersion());
+      processMap.put("savePerson", new savePerson());
       return processMap;
     }
 
@@ -224,13 +224,13 @@ public class PersonService {
       }
     }
 
-    public static class savePersion<I extends Iface> extends org.apache.thrift.ProcessFunction<I, savePersion_args> {
-      public savePersion() {
-        super("savePersion");
+    public static class savePerson<I extends Iface> extends org.apache.thrift.ProcessFunction<I, savePerson_args> {
+      public savePerson() {
+        super("savePerson");
       }
 
-      public savePersion_args getEmptyArgsInstance() {
-        return new savePersion_args();
+      public savePerson_args getEmptyArgsInstance() {
+        return new savePerson_args();
       }
 
       protected boolean isOneway() {
@@ -242,10 +242,10 @@ public class PersonService {
         return false;
       }
 
-      public savePersion_result getResult(I iface, savePersion_args args) throws org.apache.thrift.TException {
-        savePersion_result result = new savePersion_result();
+      public savePerson_result getResult(I iface, savePerson_args args) throws org.apache.thrift.TException {
+        savePerson_result result = new savePerson_result();
         try {
-          iface.savePersion(args.persion);
+          iface.savePerson(args.persion);
         } catch (DataException dataException) {
           result.dataException = dataException;
         }
@@ -267,7 +267,7 @@ public class PersonService {
 
     private static <I extends AsyncIface> java.util.Map<java.lang.String,  org.apache.thrift.AsyncProcessFunction<I, ? extends  org.apache.thrift.TBase,?>> getProcessMap(java.util.Map<java.lang.String,  org.apache.thrift.AsyncProcessFunction<I, ? extends  org.apache.thrift.TBase, ?>> processMap) {
       processMap.put("getPersonByUsername", new getPersonByUsername());
-      processMap.put("savePersion", new savePersion());
+      processMap.put("savePerson", new savePerson());
       return processMap;
     }
 
@@ -336,20 +336,20 @@ public class PersonService {
       }
     }
 
-    public static class savePersion<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, savePersion_args, Void> {
-      public savePersion() {
-        super("savePersion");
+    public static class savePerson<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, savePerson_args, Void> {
+      public savePerson() {
+        super("savePerson");
       }
 
-      public savePersion_args getEmptyArgsInstance() {
-        return new savePersion_args();
+      public savePerson_args getEmptyArgsInstance() {
+        return new savePerson_args();
       }
 
       public org.apache.thrift.async.AsyncMethodCallback<Void> getResultHandler(final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
         final org.apache.thrift.AsyncProcessFunction fcall = this;
         return new org.apache.thrift.async.AsyncMethodCallback<Void>() { 
           public void onComplete(Void o) {
-            savePersion_result result = new savePersion_result();
+            savePerson_result result = new savePerson_result();
             try {
               fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY,seqid);
             } catch (org.apache.thrift.transport.TTransportException e) {
@@ -363,7 +363,7 @@ public class PersonService {
           public void onError(java.lang.Exception e) {
             byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
             org.apache.thrift.TSerializable msg;
-            savePersion_result result = new savePersion_result();
+            savePerson_result result = new savePerson_result();
             if (e instanceof DataException) {
               result.dataException = (DataException) e;
               result.setDataExceptionIsSet(true);
@@ -395,8 +395,8 @@ public class PersonService {
         return false;
       }
 
-      public void start(I iface, savePersion_args args, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException {
-        iface.savePersion(args.persion,resultHandler);
+      public void start(I iface, savePerson_args args, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException {
+        iface.savePerson(args.persion,resultHandler);
       }
     }
 
@@ -1241,13 +1241,13 @@ public class PersonService {
     }
   }
 
-  public static class savePersion_args implements org.apache.thrift.TBase<savePersion_args, savePersion_args._Fields>, java.io.Serializable, Cloneable, Comparable<savePersion_args>   {
-    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("savePersion_args");
+  public static class savePerson_args implements org.apache.thrift.TBase<savePerson_args, savePerson_args._Fields>, java.io.Serializable, Cloneable, Comparable<savePerson_args>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("savePerson_args");
 
     private static final org.apache.thrift.protocol.TField PERSION_FIELD_DESC = new org.apache.thrift.protocol.TField("persion", org.apache.thrift.protocol.TType.STRUCT, (short)1);
 
-    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new savePersion_argsStandardSchemeFactory();
-    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new savePersion_argsTupleSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new savePerson_argsStandardSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new savePerson_argsTupleSchemeFactory();
 
     public @org.apache.thrift.annotation.Nullable Person persion; // required
 
@@ -1318,13 +1318,13 @@ public class PersonService {
       tmpMap.put(_Fields.PERSION, new org.apache.thrift.meta_data.FieldMetaData("persion", org.apache.thrift.TFieldRequirementType.REQUIRED, 
           new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, Person.class)));
       metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(savePersion_args.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(savePerson_args.class, metaDataMap);
     }
 
-    public savePersion_args() {
+    public savePerson_args() {
     }
 
-    public savePersion_args(
+    public savePerson_args(
       Person persion)
     {
       this();
@@ -1334,14 +1334,14 @@ public class PersonService {
     /**
      * Performs a deep copy on <i>other</i>.
      */
-    public savePersion_args(savePersion_args other) {
+    public savePerson_args(savePerson_args other) {
       if (other.isSetPersion()) {
         this.persion = new Person(other.persion);
       }
     }
 
-    public savePersion_args deepCopy() {
-      return new savePersion_args(this);
+    public savePerson_args deepCopy() {
+      return new savePerson_args(this);
     }
 
     @Override
@@ -1354,7 +1354,7 @@ public class PersonService {
       return this.persion;
     }
 
-    public savePersion_args setPersion(@org.apache.thrift.annotation.Nullable Person persion) {
+    public savePerson_args setPersion(@org.apache.thrift.annotation.Nullable Person persion) {
       this.persion = persion;
       return this;
     }
@@ -1414,12 +1414,12 @@ public class PersonService {
     public boolean equals(java.lang.Object that) {
       if (that == null)
         return false;
-      if (that instanceof savePersion_args)
-        return this.equals((savePersion_args)that);
+      if (that instanceof savePerson_args)
+        return this.equals((savePerson_args)that);
       return false;
     }
 
-    public boolean equals(savePersion_args that) {
+    public boolean equals(savePerson_args that) {
       if (that == null)
         return false;
       if (this == that)
@@ -1449,7 +1449,7 @@ public class PersonService {
     }
 
     @Override
-    public int compareTo(savePersion_args other) {
+    public int compareTo(savePerson_args other) {
       if (!getClass().equals(other.getClass())) {
         return getClass().getName().compareTo(other.getClass().getName());
       }
@@ -1484,7 +1484,7 @@ public class PersonService {
 
     @Override
     public java.lang.String toString() {
-      java.lang.StringBuilder sb = new java.lang.StringBuilder("savePersion_args(");
+      java.lang.StringBuilder sb = new java.lang.StringBuilder("savePerson_args(");
       boolean first = true;
 
       sb.append("persion:");
@@ -1525,15 +1525,15 @@ public class PersonService {
       }
     }
 
-    private static class savePersion_argsStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
-      public savePersion_argsStandardScheme getScheme() {
-        return new savePersion_argsStandardScheme();
+    private static class savePerson_argsStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+      public savePerson_argsStandardScheme getScheme() {
+        return new savePerson_argsStandardScheme();
       }
     }
 
-    private static class savePersion_argsStandardScheme extends org.apache.thrift.scheme.StandardScheme<savePersion_args> {
+    private static class savePerson_argsStandardScheme extends org.apache.thrift.scheme.StandardScheme<savePerson_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, savePersion_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, savePerson_args struct) throws org.apache.thrift.TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -1563,7 +1563,7 @@ public class PersonService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, savePersion_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, savePerson_args struct) throws org.apache.thrift.TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -1578,22 +1578,22 @@ public class PersonService {
 
     }
 
-    private static class savePersion_argsTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
-      public savePersion_argsTupleScheme getScheme() {
-        return new savePersion_argsTupleScheme();
+    private static class savePerson_argsTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+      public savePerson_argsTupleScheme getScheme() {
+        return new savePerson_argsTupleScheme();
       }
     }
 
-    private static class savePersion_argsTupleScheme extends org.apache.thrift.scheme.TupleScheme<savePersion_args> {
+    private static class savePerson_argsTupleScheme extends org.apache.thrift.scheme.TupleScheme<savePerson_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, savePersion_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, savePerson_args struct) throws org.apache.thrift.TException {
         org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         struct.persion.write(oprot);
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, savePersion_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, savePerson_args struct) throws org.apache.thrift.TException {
         org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         struct.persion = new Person();
         struct.persion.read(iprot);
@@ -1606,13 +1606,13 @@ public class PersonService {
     }
   }
 
-  public static class savePersion_result implements org.apache.thrift.TBase<savePersion_result, savePersion_result._Fields>, java.io.Serializable, Cloneable, Comparable<savePersion_result>   {
-    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("savePersion_result");
+  public static class savePerson_result implements org.apache.thrift.TBase<savePerson_result, savePerson_result._Fields>, java.io.Serializable, Cloneable, Comparable<savePerson_result>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("savePerson_result");
 
     private static final org.apache.thrift.protocol.TField DATA_EXCEPTION_FIELD_DESC = new org.apache.thrift.protocol.TField("dataException", org.apache.thrift.protocol.TType.STRUCT, (short)1);
 
-    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new savePersion_resultStandardSchemeFactory();
-    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new savePersion_resultTupleSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new savePerson_resultStandardSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new savePerson_resultTupleSchemeFactory();
 
     public @org.apache.thrift.annotation.Nullable DataException dataException; // required
 
@@ -1683,13 +1683,13 @@ public class PersonService {
       tmpMap.put(_Fields.DATA_EXCEPTION, new org.apache.thrift.meta_data.FieldMetaData("dataException", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, DataException.class)));
       metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(savePersion_result.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(savePerson_result.class, metaDataMap);
     }
 
-    public savePersion_result() {
+    public savePerson_result() {
     }
 
-    public savePersion_result(
+    public savePerson_result(
       DataException dataException)
     {
       this();
@@ -1699,14 +1699,14 @@ public class PersonService {
     /**
      * Performs a deep copy on <i>other</i>.
      */
-    public savePersion_result(savePersion_result other) {
+    public savePerson_result(savePerson_result other) {
       if (other.isSetDataException()) {
         this.dataException = new DataException(other.dataException);
       }
     }
 
-    public savePersion_result deepCopy() {
-      return new savePersion_result(this);
+    public savePerson_result deepCopy() {
+      return new savePerson_result(this);
     }
 
     @Override
@@ -1719,7 +1719,7 @@ public class PersonService {
       return this.dataException;
     }
 
-    public savePersion_result setDataException(@org.apache.thrift.annotation.Nullable DataException dataException) {
+    public savePerson_result setDataException(@org.apache.thrift.annotation.Nullable DataException dataException) {
       this.dataException = dataException;
       return this;
     }
@@ -1779,12 +1779,12 @@ public class PersonService {
     public boolean equals(java.lang.Object that) {
       if (that == null)
         return false;
-      if (that instanceof savePersion_result)
-        return this.equals((savePersion_result)that);
+      if (that instanceof savePerson_result)
+        return this.equals((savePerson_result)that);
       return false;
     }
 
-    public boolean equals(savePersion_result that) {
+    public boolean equals(savePerson_result that) {
       if (that == null)
         return false;
       if (this == that)
@@ -1814,7 +1814,7 @@ public class PersonService {
     }
 
     @Override
-    public int compareTo(savePersion_result other) {
+    public int compareTo(savePerson_result other) {
       if (!getClass().equals(other.getClass())) {
         return getClass().getName().compareTo(other.getClass().getName());
       }
@@ -1849,7 +1849,7 @@ public class PersonService {
 
     @Override
     public java.lang.String toString() {
-      java.lang.StringBuilder sb = new java.lang.StringBuilder("savePersion_result(");
+      java.lang.StringBuilder sb = new java.lang.StringBuilder("savePerson_result(");
       boolean first = true;
 
       sb.append("dataException:");
@@ -1884,15 +1884,15 @@ public class PersonService {
       }
     }
 
-    private static class savePersion_resultStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
-      public savePersion_resultStandardScheme getScheme() {
-        return new savePersion_resultStandardScheme();
+    private static class savePerson_resultStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+      public savePerson_resultStandardScheme getScheme() {
+        return new savePerson_resultStandardScheme();
       }
     }
 
-    private static class savePersion_resultStandardScheme extends org.apache.thrift.scheme.StandardScheme<savePersion_result> {
+    private static class savePerson_resultStandardScheme extends org.apache.thrift.scheme.StandardScheme<savePerson_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, savePersion_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, savePerson_result struct) throws org.apache.thrift.TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -1922,7 +1922,7 @@ public class PersonService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, savePersion_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, savePerson_result struct) throws org.apache.thrift.TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -1937,16 +1937,16 @@ public class PersonService {
 
     }
 
-    private static class savePersion_resultTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
-      public savePersion_resultTupleScheme getScheme() {
-        return new savePersion_resultTupleScheme();
+    private static class savePerson_resultTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+      public savePerson_resultTupleScheme getScheme() {
+        return new savePerson_resultTupleScheme();
       }
     }
 
-    private static class savePersion_resultTupleScheme extends org.apache.thrift.scheme.TupleScheme<savePersion_result> {
+    private static class savePerson_resultTupleScheme extends org.apache.thrift.scheme.TupleScheme<savePerson_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, savePersion_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, savePerson_result struct) throws org.apache.thrift.TException {
         org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet optionals = new java.util.BitSet();
         if (struct.isSetDataException()) {
@@ -1959,7 +1959,7 @@ public class PersonService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, savePersion_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, savePerson_result struct) throws org.apache.thrift.TException {
         org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {

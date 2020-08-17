@@ -1,6 +1,5 @@
 package com.hsfeng.netty.thrift;
 
-import com.google.gson.stream.JsonToken;
 import org.apache.thrift.TException;
 import thrift.generated.DataException;
 import thrift.generated.Person;
@@ -21,7 +20,7 @@ public class PersonServiceImpl implements PersonService.Iface {
     }
 
     @Override
-    public void savePersion(Person person) throws DataException, TException {
+    public void savePerson(Person person) throws DataException, TException {
         System.out.println("Got Client Param: ");
 
         System.out.println(person.getUsername());

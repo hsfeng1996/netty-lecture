@@ -32,7 +32,7 @@ public class ThriftClient {
             person2.setAge(30);
             person2.setMarried(true);
 
-            client.savePersion(person2);
+            client.savePerson(person2);
         }catch (Exception e){
             throw new RuntimeException(e.getMessage(), e);
         }finally {

@@ -1,4 +1,4 @@
-syntax = "proto2";
+syntax = "proto3";
 
 package com.hsfeng.protobuf;
 
@@ -9,12 +9,12 @@ option java_outer_classname = "MyDataInfo";
 message MyMessage {
 
     enum DataType {
-        PersonType = 1;
-        DogType = 2;
-        CatType = 3;
+        PersonType = 0;
+        DogType = 1;
+        CatType = 2;
     }
 
-    required DataType data_type = 1;
+    DataType data_type = 1;
 
     oneof dataBody {
         Person person = 2;
@@ -24,17 +24,17 @@ message MyMessage {
 }
 
 message Person {
-    optional string name = 1;
-    optional int32 age = 2;
-    optional string address = 3;
+    string name = 1;
+    int32 age = 2;
+    string address = 3;
 }
 
 message Dog {
-    optional string name = 1;
-    optional int32 age = 2;
+    string name = 1;
+    int32 age = 2;
 }
 
 message Cat {
-    optional string name = 1;
-    optional string city = 2;
+    string name = 1;
+    string city = 2;
 }
